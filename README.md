@@ -1,2 +1,2 @@
 # leaflet-bootstrap-contextmenu
-Context-menu for Leaflet
+Contextmenu for Leaflet
