@@ -1,0 +1,38 @@
+{
+  "name": "leaflet-bootstrap-contextmenu",
+  "version": "1.0.0",
+  "homepage": "https://github.com/FCOO/leaflet-bootstrap-contextmenu",
+  "authors": [
+    "Niels Holt"
+  ],
+  "description": "",
+  "main": [
+    "dist/leaflet-bootstrap-contextmenu.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/leaflet-bootstrap-contextmenu.git"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "leaflet": "latest",
+    "leaflet-bootstrap": "fcoo/leaflet-bootstrap#^2.1.4",
+    "leaflet-bootstrap-marker": "fcoo/leaflet-bootstrap-marker#^2.2.0"
+  },
+  "devDependencies": {
+    "bourbon": "latest",
+    "modernizr-mixin": "latest",
+    "mathsass": "latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
+}

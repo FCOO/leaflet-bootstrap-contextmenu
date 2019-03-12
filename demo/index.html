@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+<head>
+    <title>fcoo.dk - leaflet-bootstrap-contextmenu - Demo</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	<meta name='copyright' content='FCOO'>
+	<meta name='owner' content='FCOO'>
+
+    <link  href="bower_components.css" rel="stylesheet">
+    <link  href="css/all.css" rel="stylesheet">
+
+    <link  href="../src/leaflet-bootstrap-contextmenu.css" rel="stylesheet">
+
+    <style>
+        html, body, #map {
+            width: 100%; height:100%; cursor: default;
+        }
+        #map2 {
+            width: 50%; height:50%; cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+	<div id="map"></div>
+
+	<script src="bower_components.js"></script>
+	<script src="../src/leaflet-bootstrap-contextmenu.js"></script>
+	<script>
+        window.bsIsTouch = false;
+        window.bsIsTouch = (window.location.search =='?touch');
+
+        i18next.init();
+        i18next.changeLanguage('da');
+        i18next.options.fallbackLng = i18next.language == 'da' ? 'en' : 'da';
+
+        var first = null;
+
+        var map =
+                L.map('map', {
+                    contextmenu: true
+                }).setView([56.2, 11.5], 6);
+
+        var layer =
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		            maxZoom: 18,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
+                });
+        layer.addTo(map);
+
+
+        map.setContextmenuHeader({icon:'fa-home', text:'MAP header'});
+        map.addContextmenuItems([
+            {icon:'fa-home', text:{da:'Map 1'}, onClick: function(latlng){ console.log('MAP 1',this, latlng); } },
+            {icon:'fa-map',  text:'Map 2', onClick: function(latlng){ console.log('MAP 2',this, latlng); } }
+        ]);
+
+        map.on('click', function( e ){
+            var marker =
+                (!first ? L.bsMarkerCircle : L.marker)( e.latlng, {
+                    draggable: true,
+                    colorName: 'red',
+                    shadow: false
+                })
+//                .on('click', function(){ this.remove(); })
+                .bindPopup({
+                    header: 'Overskrift',
+                    content: 'Davslkjsssldkfjslkdjlaksjdflkasjdflaksjdflkasjdf',
+                    fixable: true,
+                    width: 200,
+                })
+                .addTo(map);
+
+            marker.addContextmenuItems([
+                {icon:'fa-home', text:{da:'Marker 1'}, onClick: function(latlng){ console.log('Marker 1',this, latlng); } },
+                {icon:'fa-map',  text:{da:'Marker 2'}, onClick: function(latlng){ console.log('Marker 2',this, latlng); } },
+            ]);
+
+            marker.setContextmenuHeader('Marker Header');
+            marker.setContextmenuParent(first);
+            first = first || marker;
+        });
+
+var states_polygon = L.polygon([[
+            [48.99,-104.05],
+            [48.98,-97.22],
+            [45.94,-96.58],
+            [45.94,-104.03],
+            [48.99,-104.05]
+        ]]).addTo(map);
+
+states_polygon.addContextmenuItems([
+    {icon:'fa-home', text:{da:'Polygon 1'}},
+    {icon:'fa-map',  text:'Polygon 2'}
+]);
+
+	</script>
+</body>
+</html>

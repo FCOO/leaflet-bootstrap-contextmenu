@@ -1,0 +1,32 @@
+/***********************************************
+	leaflet-bootstrap-contextmenu.scss
+
+	(c) 2019, FCOO
+
+	https://github.com/FCOO/leaflet-bootstrap-contextmenu
+	https://github.com/FCOO
+
+
+************************************************/
+//BOURBON - http://bourbon.io/
+@import "../bower_components/bourbon/core/bourbon";
+
+//MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
+@import "../bower_components/modernizr-mixin/stylesheets/modernizr";
+
+//MATHSASS - https://github.com/terkel/mathsass
+@import "../bower_components/mathsass/dist/math";
+
+
+//Adjust content wwhen insida a popup used as contextmenu
+.leaflet-popup-contextmenu {
+    .modal-content {
+        padding: 0 !important;
+        .modal-body {
+            padding: 1px !important;
+        }
+        .modal-footer:empty {
+            display: none !important;
+        }
+    }
+}

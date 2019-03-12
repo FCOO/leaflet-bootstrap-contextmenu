@@ -1,0 +1,16 @@
+/***********************************************
+	leaflet-bootstrap-contextmenu.scss
+
+	(c) 2019, FCOO
+
+	https://github.com/FCOO/leaflet-bootstrap-contextmenu
+	https://github.com/FCOO
+
+
+************************************************/
+.leaflet-popup-contextmenu .modal-content {
+  padding: 0 !important; }
+  .leaflet-popup-contextmenu .modal-content .modal-body {
+    padding: 1px !important; }
+  .leaflet-popup-contextmenu .modal-content .modal-footer:empty {
+    display: none !important; }
